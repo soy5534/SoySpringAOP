@@ -13,17 +13,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+
 import kr.co.ajoo.notice.domain.NoticeVO;
 import kr.co.ajoo.notice.domain.PageInfo;
+import kr.co.ajoo.notice.domain.ReplyVO;
 import kr.co.ajoo.notice.service.NoticeService;
+import kr.co.ajoo.notice.service.ReplyService;
 
 @Controller
 public class NoticeController {
 	@Autowired
 	private NoticeService nService;
+	@Autowired
+	private ReplyService rService;
 	
 	// 공지사항 상세
 	@RequestMapping(value="/notice/detail.kh", method=RequestMethod.GET)
@@ -288,6 +295,25 @@ public class NoticeController {
 			delFile.delete();
 		}
 	}
+	
+	// 댓글
+	
+	// 댓글 목록
+//	@ResponseBody
+//	@RequestMapping(value="noticereply/list.kh", produces="application/json;charset=utf-8"
+//		,method = RequestMethod.GET)
+//	public String showReplyList(@RequestParam("refBoardNo") Integer refBoardNo) {
+//		List<ReplyVO> rList = rService.selectReplyList(refBoardNo);
+//		Gson gson = new Gson();
+//		return gson.toJson(rList);
+//	}
+	
+	
+	
+	
+	
+	
+	
 }
 
 
